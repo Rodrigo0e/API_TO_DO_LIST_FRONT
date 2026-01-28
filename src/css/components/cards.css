@@ -1,0 +1,304 @@
+
+.tarefas-section {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--ralo-borda);
+    box-shadow: var(--sombra);
+    margin-bottom: 2rem;
+}
+
+.tarefas-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--cor-primaria);
+}
+
+.tarefas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tarefa-card {
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.tarefa-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--cor-primaria);
+    transform: translateY(-4px);
+}
+
+.tarefa-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.tarfa-titulo,
+.tarefa-titulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+    flex: 1;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.tarefa-badges,
+.tarefa-badge {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.badge,
+.prioridade-badge,
+.status-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.badge-status,
+.status-badge {
+    background: var(--cor-info);
+    color: white;
+}
+
+.badge-status.pendente,
+.status-pendente {
+    background: #f97316 !important;
+}
+
+.badge-status.progrresso,
+.status-em-andamento {
+    background: var(--cor-info) !important;
+}
+
+.badge-status.concluida,
+.status-concluida {
+    background: var(--cor-sucesso) !important;
+}
+
+.badge-prioridade,
+.prioridade-badge {
+    background: var(--cor-erro);
+    color: white;
+}
+
+.badge-prioridade.baixa,
+.prioridade-baixa {
+    background: #94a3b8 !important;
+}
+
+.badge-prioridade.media,
+.prioridade-media {
+    background: var(--cor-aviso) !important;
+    color: white;
+}
+
+.badge-prioridade.alta,
+.prioridade-alta {
+    background: var(--cor-erro) !important;
+    color: white;
+}
+
+.tarefa-conteudo {
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.tarefa-descricao {
+    font-size: 0.95rem;
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+    margin: 0;
+    word-break: break-word;
+}
+
+.tarefa-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--cor-borda);
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.tarefa-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--cor-texto-claro);
+}
+
+.tarefa-data {
+    font-size: 0.8rem;
+    color: var(--cor-texto-claro);
+}
+
+.tarefa-id {
+    font-size: 0.75rem;
+    color: var(--cor-texto-claro);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.tarefa-status {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.status-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: #333;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+.status-select:hover {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.status-select option {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+}
+
+.status-select option[value="pendente"] {
+    background: linear-gradient(135deg, #FFE4B5 0%, #FFDAB9 100%);
+    color: #FF8C00;
+}
+
+.status-select option[value="em andamento"] {
+    background: linear-gradient(135deg, #87CEEB 0%, #ADD8E6 100%);
+    color: #0047AB;
+}
+
+.status-select option[value="concluida"] {
+    background: linear-gradient(135deg, #90EE90 0%, #98FB98 100%);
+    color: #006400;
+}
+
+.tarefa-acoes {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--cor-texto-claro);
+    grid-column: 1 / -1;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+    .tarefas-container {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+
+    .tarefa-card {
+        padding: 1.25rem;
+    }
+
+    .tarefa-titulo {
+        font-size: 1.1rem;
+    }
+
+    .tarefa-descricao {
+        font-size: 0.9rem;
+    }
+
+    .tarefa-badge {
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .prioridade-badge,
+    .status-badge {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.7rem;
+    }
+
+    .tarefa-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tarefa-acoes {
+        width: 100%;
+    }
+
+    .btn-acao {
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .tarefas-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .tarefa-card {
+        padding: 1rem;
+    }
+
+    .tarefa-titulo {
+        font-size: 1rem;
+    }
+
+    .tarefa-descricao {
+        font-size: 0.85rem;
+    }
+
+    .empty-state {
+        padding: 2rem 1rem;
+    }
+}

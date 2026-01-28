@@ -1,0 +1,40 @@
+{
+  "name": "produtask",
+  "version": "1.0.0",
+  "description": "Aplicação web para gerenciar tarefas de forma eficiente. Sistema completo com criação, edição, exclusão e filtros por status e prioridade.",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rodrigo0e/API_TO_DO_LIST_FRONT.git"
+  },
+  "keywords": [
+    "tarefas",
+    "to-do",
+    "produtividade",
+    "gerenciador",
+    "javascript"
+  ],
+  "author": "Rodrigo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rodrigo0e/API_TO_DO_LIST_FRONT/issues"
+  },
+  "homepage": "https://github.com/Rodrigo0e/API_TO_DO_LIST_FRONT#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "toastify-js": "^1.12.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

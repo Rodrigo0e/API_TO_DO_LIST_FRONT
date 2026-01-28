@@ -1,0 +1,32 @@
+/* ═══════════════════════════════════════════════════════════
+   VARIÁVEIS GLOBAIS - Cores, espaçamento e sombras
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+    /* ─── CORES PRIMÁRIAS ─── */
+    --cor-primaria: #6366f1;
+    --cor-secundria: #8b5cf6;
+    --cor-sucesso: #10b981;
+    --cor-aviso: #f59e0b;
+    --cor-erro: #ef4444;
+    --cor-info: #3b82f6;
+
+    /* ─── CORES DE FUNDO ─── */
+    --cor-fundo: #f8fafc;
+    --cor-fundo-escuro: #1e293b;
+
+    /* ─── CORES DE TEXTO E BORDAS ─── */
+    --cor-borda: #e2e8f0;
+    --cor-texto: #1e293b;
+    --cor-texto-claro: #64748b;
+
+    /* ─── ESPAÇAMENTO ─── */
+    --espacamento: 1rem;
+
+    /* ─── SOMBRAS ─── */
+    --sombra: 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --sombra-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+    /* ─── BORDER RADIUS ─── */
+    --ralo-borda: 0.5rem;
+}

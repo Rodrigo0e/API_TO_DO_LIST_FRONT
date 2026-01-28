@@ -1,0 +1,80 @@
+.form-section {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--ralo-borda);
+    box-shadow: var(--sombra);
+    margin-bottom: 2rem;
+}
+
+.form-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--cor-primaria);
+}
+
+.tarefa-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--cor-texto);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select,
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    padding: 0.70rem;
+    border: 2px solid var(--cor-borda);
+    border-radius: var(--ralo-borda);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus,
+.modal-content input:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea,
+.modal-content textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 760px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-section,
+    .tarefas-section {
+        padding: 1rem;
+    }
+}

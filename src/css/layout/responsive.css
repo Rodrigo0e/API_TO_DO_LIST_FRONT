@@ -1,0 +1,56 @@
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--espacamento);
+    }
+}
+
+@media (max-width: 488px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .form-section,
+    .tarefas-section {
+        padding: 1rem;
+    }
+
+    .cabecalho {
+        padding: 2rem 0.75rem;
+    }
+
+    .tarefa-card {
+        padding: 1rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.65rem 1.25rem;
+    }
+
+    .tarefas-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .tarefas-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .tarefa-card {
+        padding: 1rem;
+    }
+
+    .tarefa-titulo {
+        font-size: 1rem;
+    }
+
+    .tarefa-descricao {
+        font-size: 0.85rem;
+    }
+
+    .empty-state {
+        padding: 2rem 1rem;
+    }
+}

@@ -1,5 +1,9 @@
 const API = "https://api-to-do-list-nr73.onrender.com/tarefas";
 
+let minhasTarefas = [];
+let filtroSelecionado = "todas";
+let tarefaEmEdicao = null;
+
 function notificar(mensagem, tipo = "sucesso") {
   const cores = {
     sucesso: "#4CAF50",
@@ -158,32 +162,14 @@ async function removerTarefa(id) {
   }
 }
 
-let minhasTarefas = [];
-let filtroSelecionado = "todas";
-let tarefaEmEdicao = null;
+function ordenarPorPrioridade(tarefas) {
+  const ordem = { alta: 1, media: 2, baixa: 3 };
+  return [...tarefas].sort((a, b) => ordem[a.prioridade] - ordem[b.prioridade]);
+}
 
 async function atualizarLista() {
   minhasTarefas = await buscarTarefas();
   mostrarTarefas();
-}
-
-function abrirModal(tarefa) {
-  tarefaEmEdicao = tarefa;
-  document.getElementById("edit-titulo").value = tarefa.titulo;
-  document.getElementById("edit-descricao").value = tarefa.descricao;
-  document.getElementById("edit-prioridade").value = tarefa.prioridade;
-  document.getElementById("edit-status").value = tarefa.status;
-  document.getElementById("modal-editar").classList.add("show");
-}
-
-function fecharModal() {
-  document.getElementById("modal-editar").classList.remove("show");
-  tarefaEmEdicao = null;
-}
-
-function ordenarPorPrioridade(tarefas) {
-  const ordem = { alta: 1, media: 2, baixa: 3 };
-  return [...tarefas].sort((a, b) => ordem[a.prioridade] - ordem[b.prioridade]);
 }
 
 function mostrarTarefas() {
@@ -246,15 +232,6 @@ function attachEventos() {
     });
   });
 
-  document.querySelectorAll(".checkbox-status").forEach(box => {
-    box.addEventListener("change", async (e) => {
-      const id = e.target.dataset.id;
-      const novoStatus = e.target.checked ? "concluida" : "pendente";
-      await mudarStatus(id, novoStatus);
-      await atualizarLista();
-    });
-  });
-
   document.querySelectorAll(".btn-delete").forEach(btn => {
     btn.addEventListener("click", async (e) => {
       const id = e.target.dataset.id;
@@ -277,13 +254,23 @@ function attachEventos() {
   });
 }
 
-function initForm() {
+function abrirModal(tarefa) {
+  tarefaEmEdicao = tarefa;
+  document.getElementById("edit-titulo").value = tarefa.titulo;
+  document.getElementById("edit-descricao").value = tarefa.descricao;
+  document.getElementById("edit-prioridade").value = tarefa.prioridade;
+  document.getElementById("edit-status").value = tarefa.status;
+  document.getElementById("modal-editar").classList.add("show");
+}
+
+function fecharModal() {
+  document.getElementById("modal-editar").classList.remove("show");
+  tarefaEmEdicao = null;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-tarefa");
   
-  if (!form) {
-    return;
-  }
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -297,21 +284,11 @@ function initForm() {
       return;
     }
 
-    const editId = form.dataset.editId;
-
-    if (editId) {
-      await atualizarTarefa(editId, titulo, descricao, prioridade, status);
-      form.dataset.editId = "";
-    } else {
-      await salvarTarefa(titulo, descricao, prioridade, status);
-    }
-
+    await salvarTarefa(titulo, descricao, prioridade, status);
     form.reset();
     await atualizarLista();
   });
-}
 
-function initFiltros() {
   document.querySelectorAll(".filter-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
@@ -320,9 +297,7 @@ function initFiltros() {
       mostrarTarefas();
     });
   });
-}
 
-function initModal() {
   const modal = document.getElementById("modal-editar");
   const formEditar = document.getElementById("form-editar");
   const btnCancelar = document.getElementById("btn-cancelar");
@@ -356,11 +331,6 @@ function initModal() {
     fecharModal();
     await atualizarLista();
   });
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-  initForm();
-  initFiltros();
   atualizarLista();
-  initModal();
 });

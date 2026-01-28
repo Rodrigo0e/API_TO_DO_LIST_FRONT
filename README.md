@@ -48,7 +48,10 @@ api-to-do-list-front/
 ├── README.md              # Este arquivo
 └── src/
     ├── css/
-    │   └── style.css      # Estilos CSS da aplicação
+    │   ├── base/
+    │   ├── components/
+    │   ├── layout/
+    │   └── main.css
     └── script/
         └── script.js      # JavaScript principal
 ```
