@@ -1,0 +1,918 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-primaria: #6366f1;
+    --cor-secundria: #8b5cf6;
+    --cor-sucesso: #10b981;
+    --cor-aviso: #f59e0b;
+    --cor-erro: #ef4444;
+    --cor-info: #3b82f6;
+    --cor-fundo: #f8fafc;
+    --cor-fundo-escuro: #1e293b;
+    --cor-borda: #e2e8f0;
+    --cor-texto: #1e293b;
+    --cor-texto-claro: #64748b;
+    --espacamento: 1rem;
+    --sombra: 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --sombra-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --ralo-borda: 0.5rem;
+}
+
+body {
+    font-family: 'Segoe UI',  Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+.cabecalho {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundria) 100%);
+    color: white;
+    padding: 3rem var(--espacamento);
+    text-align: center;
+    box-shadow: var(--sombra-lg);
+    margin-bottom: 2rem;
+}
+
+.cabecalho h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.cabecalho p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--espacamento);
+}
+
+.form-section {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--ralo-borda);
+    box-shadow: var(--sombra);
+    margin-bottom: 2rem;
+}
+
+.form-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--cor-primaria);
+}
+
+.tarefa-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--cor-texto);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 0.70rem;
+    border: 2px solid var(--cor-borda);
+    border-radius: var(--ralo-borda);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--ralo-borda);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundria) 100%);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-lg);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-smal {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.filter-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--ralo-borda);
+    box-shadow: var(--sombra);
+    margin-bottom: 2rem;
+}
+
+.filter-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--cor-primaria);
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--cor-borda);
+    background: white;
+    border-radius: var(--ralo-borda);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: var(--cor-texto-claro);
+}
+
+.filter-btn:hover {
+    border: var(--cor-primaria);
+    color: var(--cor-primaria);
+}
+
+.filter-btn.active {
+    background: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    color: white;
+}
+
+.tarefas-section {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--ralo-borda);
+    box-shadow: var(--sombra);
+    margin-bottom: 2rem;
+}
+
+.tarefas-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--cor-primaria);
+}
+
+.tarefas-container {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.tarefa-card {
+    background: var(--cor-fundo);
+    border: 2px solid var(--cor-borda);
+    border-radius: var(--ralo-borda);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.tarefa-card:hover {
+    border-color: var(--cor-primaria);
+    box-shadow: var(--sombra-lg);
+    transform: translateY(-2px)
+}
+
+.tarefa-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.tarfa-titulo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+    flex: 1;
+}
+
+.tarefa-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-status {
+    background: var(--cor-info);
+    color: white;
+}
+
+.badge-status.pendente {
+    background: var(--cor-aviso);
+}
+
+.badge-status.progrresso {
+    background: var(--cor-info);
+}
+
+.badge-status.concluida {
+    background: var(--cor-sucesso);
+}
+
+.badge-prioridade {
+    background: var(--cor-erro);
+    color: white;
+}
+
+.badge-prioridade.baixa {
+    background: #94a3b8;
+}
+
+.badge-prioridade.media {
+    background: var(--cor-aviso);
+}
+
+.badge-prioridade.alta {
+    background: var(--cor-erro);
+}
+
+.tarefa-descricao {
+    color: var(--cor-texto-claro);
+}
+
+.tarefa-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--cor-borda);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.tarefa-status {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.status-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: #333;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+.status-select:hover {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.status-select option {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+}
+
+.status-select option[value="pendente"] {
+    background: linear-gradient(135deg, #FFE4B5 0%, #FFDAB9 100%);
+    color: #FF8C00;
+}
+
+.status-select option[value="em andamento"] {
+    background: linear-gradient(135deg, #87CEEB 0%, #ADD8E6 100%);
+    color: #0047AB;
+}
+
+.status-select option[value="concluida"] {
+    background: linear-gradient(135deg, #90EE90 0%, #98FB98 100%);
+    color: #006400;
+}
+
+.tarefa-id {
+    font-size: 0.75rem;
+    color: var(--cor-texto-claro);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.tarefa-acoes {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.btn-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.btn-delete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.btn-editar {
+    background: var(--cor-info);
+    color: white;
+}
+
+.btn-editar:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--cor-texto-claro);
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.rodape {
+    background:  var(--cor-fundo-escuro);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.rodape p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 760px) {
+    .cabecalho h1 {
+        font-size: 2rem;
+    }
+
+    .cabecalho p {
+        font-size: 1rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-buttons {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        flex: 1;
+        min-width: 100px;
+        font-size: 0.9rem;
+    }
+
+    .tarefa-header {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .tarefa-badges {
+        justify-content: flex-start;
+    }
+
+    .tarefa-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tarefa-acoes {
+        width: 100%;
+    }
+
+    .btn-acao {
+        flex: 1;
+    }
+}
+
+/* ╔════════════════════════════════════════════════════════════╗
+   ║          ESTILOS DOS CARTÕES DE TAREFAS                      ║
+   ╚════════════════════════════════════════════════════════════╝ */
+
+.tarefas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tarefa-card {
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.tarefa-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--cor-primaria);
+    transform: translateY(-4px);
+}
+
+/* ===== BADGES (PRIORIDADE E STATUS) ===== */
+.tarefa-badge {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.prioridade-badge,
+.status-badge {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* PRIORIDADE */
+.prioridade-badge {
+    background: var(--cor-aviso);
+    color: white;
+}
+
+.prioridade-alta {
+    background: var(--cor-erro) !important;
+    color: white;
+}
+
+.prioridade-media {
+    background: var(--cor-aviso) !important;
+    color: white;
+}
+
+.prioridade-baixa {
+    background: var(--cor-sucesso) !important;
+    color: white;
+}
+
+/* STATUS */
+.status-badge {
+    background: var(--cor-info);
+    color: white;
+}
+
+.status-pendente {
+    background: #f97316 !important;
+}
+
+.status-em-andamento {
+    background: var(--cor-info) !important;
+}
+
+.status-concluida {
+    background: var(--cor-sucesso) !important;
+}
+
+/* ===== CONTEÚDO DA TAREFA ===== */
+.tarefa-conteudo {
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.tarefa-titulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.tarefa-descricao {
+    font-size: 0.95rem;
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+    margin: 0;
+    word-break: break-word;
+}
+
+/* ===== FOOTER DO CARTÃO ===== */
+.tarefa-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--cor-borda);
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.tarefa-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--cor-texto-claro);
+}
+
+.tarefa-data {
+    font-size: 0.8rem;
+    color: var(--cor-texto-claro);
+}
+
+/* ===== BOTÃO DELETAR ===== */
+.btn-deletar {
+    padding: 0.5rem 1rem;
+    background: var(--cor-erro);
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-deletar:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.btn-deletar:active {
+    transform: scale(0.98);
+}
+
+/* ===== ESTADO VAZIO ===== */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--cor-texto-claro);
+    grid-column: 1 / -1;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .tarefas-container {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+
+    .tarefa-card {
+        padding: 1.25rem;
+    }
+
+    .tarefa-titulo {
+        font-size: 1.1rem;
+    }
+
+    .tarefa-descricao {
+        font-size: 0.9rem;
+    }
+
+    .tarefa-badge {
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .prioridade-badge,
+    .status-badge {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.7rem;
+    }
+
+    .tarefa-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-deletar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tarefas-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .tarefa-card {
+        padding: 1rem;
+    }
+
+    .tarefa-titulo {
+        font-size: 1rem;
+    }
+
+    .tarefa-descricao {
+        font-size: 0.85rem;
+    }
+
+    .empty-state {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 488px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .form-section,
+    .tarefas-section {
+        padding: 1rem;
+    }
+
+    .cabecalho {
+        padding: 2rem 0.75rem;
+    }
+
+    .tarefa-card {
+        padding: 1rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.65rem 1.25rem;
+    }
+
+    .tarefas-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-custom {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-custom.show {
+    display: flex;
+}
+
+.modal-custom-content {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    animation: slideUp 0.3s ease;
+}
+
+.modal-custom-content h3 {
+    margin-bottom: 1rem;
+    color: var(--cor-primaria);
+    font-size: 1.3rem;
+}
+
+.modal-custom-content p {
+    margin-bottom: 2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.modal-custom-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.modal-custom-buttons .btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-content h2 {
+    margin-bottom: 1.5rem;
+    color: var(--cor-primaria);
+}
+
+.modal-content .form-group {
+    margin-bottom: 1rem;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.modal-content textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: flex-end;
+}
+
+.btn-secondary {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #aaa;
+}

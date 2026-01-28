@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtask</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>Produtask</h1>
+        <p>Gerencie suas tarefas com eficiência</p>
+    </header>
+    <main class="container">
+        <section class="form-section">
+            <h2>Nova Tarefa</h2>
+            <form class="tarefa-form" id="form-tarefa">
+                <div class="form-group">
+                    <label for="titulo">Título *</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Digite o título da tarefa" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao">Descrição *</label>
+                    <textarea id="descricao" name="descricao" placeholder="Descreva a tarefa detalhadamente" rows="4" required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prioridade">Prioridade *</label>
+                        <select id="prioridade" name="prioridade" required>
+                            <option value="">Selecione uma prioridade</option>
+                            <option value="baixa">Baixa</option>
+                            <option value="media">Média</option>
+                            <option value="alta">Alta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status *</label>
+                        <select id="status" name="status" required>
+                            <option value="">Selecione um status</option>
+                            <option value="pendente">Pendente</option>
+                            <option value="em andamento">Em Andamento</option>
+                            <option value="concluida">Concluída</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Adicionar tarefa</button>
+            </form>
+        </section>
+
+        <section class="filter-section">
+            <h2>Filtros</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="todas">Todas</button>
+                <button class="filter-btn" data-filter="pendente">Pendentes</button>
+                <button class="filter-btn" data-filter="em andamento">Em Andamento</button>
+                <button class="filter-btn" data-filter="concluida">Concluída</button>
+            </div>
+        </section>
+
+        <section class="tarefas-section">
+            <h2>Minhas Tarefas</h2>
+            <div class="tarefas-container" id="tarefas-container">
+                <div class="empty-state">
+                    <p>Nenhuma tarefa encontrada. Crie uma nova tarefa!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-confirm" class="modal-custom">
+        <div class="modal-custom-content">
+            <h3 id="confirm-title">Confirmação</h3>
+            <p id="confirm-message"></p>
+            <div class="modal-custom-buttons">
+                <button class="btn btn-primary" id="btn-confirm">Confirmar</button>
+                <button class="btn btn-secondary" id="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-alert" class="modal-custom">
+        <div class="modal-custom-content">
+            <h3>Aviso</h3>
+            <p id="alert-message"></p>
+            <div class="modal-custom-buttons">
+                <button class="btn btn-primary" id="btn-alert-ok">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Editar Tarefa</h2>
+            <form id="form-editar">
+                <div class="form-group">
+                    <label for="edit-titulo">Título</label>
+                    <input type="text" id="edit-titulo" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-descricao">Descrição</label>
+                    <textarea id="edit-descricao" rows="4" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-prioridade">Prioridade</label>
+                        <select id="edit-prioridade" required>
+                            <option value="baixa">Baixa</option>
+                            <option value="media">Média</option>
+                            <option value="alta">Alta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-status">Status</label>
+                        <select id="edit-status" required>
+                            <option value="pendente">Pendente</option>
+                            <option value="em andamento">Em Andamento</option>
+                            <option value="concluida">Concluída</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-secondary" id="btn-cancelar">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <p>Produtask, desenvolvido por Rodrigo Barros Souza</p>
+    </footer>
+
+    <script src="./src/script/script.js"></script>
+</body>
+</html>
