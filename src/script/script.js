@@ -1,4 +1,4 @@
-const API = "https://api-to-do-list-nr73.onrender.com/tarefas";
+const API = process.env.VITE_API_URL;
 
 let minhasTarefas = [];
 let filtroSelecionado = "todas";
