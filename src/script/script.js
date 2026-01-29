@@ -1,4 +1,4 @@
-const API = "ttps://produtask.onrender.com/tarefas";
+const API = "https://produtask.onrender.com/tarefas";
 
 let minhasTarefas = [];
 let filtroSelecionado = "todas";
